@@ -8,16 +8,17 @@ with open(Path(__file__).parent / 'tencent-auto.json', 'rb+') as f:
     tencent = data['data']['*Tencent*']
     for x in tencent:
         for y in ('o', 't'):
-            if rf'\\*.{y}tf' in x['res_path']:
+            if rf'\*.{y}tf' in x['res_path']:
                 x['action_type'] = 2
                 x['treatment'] = 0
+                break
     for x in ('common-controls', 'gdiplus'):
         tencent.append(
             {
-                "res_path": rf"*\WinSXS\x86_microsoft.windows.{x}*",
-                "montype": 1,
-                "action_type": 2,
-                "treatment": 0,
+                'res_path': rf'*\WinSXS\x86_microsoft.windows.{x}*',
+                'montype': 1,
+                'action_type': 2,
+                'treatment': 0,
             }
         )
     f.seek(0)
