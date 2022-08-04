@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
 import json
-import sys
+from pathlib import Path
 
-with open(sys.argv[1], 'rb+') as f:
+with open(Path(__file__).parent / 'tencent-auto.json', 'rb+') as f:
     data = json.load(f)
     tencent = data['data']['*Tencent*']
     for x in tencent:
