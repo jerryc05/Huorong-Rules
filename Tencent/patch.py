@@ -9,9 +9,9 @@ with open(Path(__file__).parent / 'tencent-auto.json', 'rb+') as f:
     for x in tencent:
         allow_read = False
         for y in ('o', 't'):
-            if f'*.{y}tf' in x['res_path']:
+            if Rf'\*.{y}tf' in x['res_path']:
                 allow_read = True
-        if x['res_path'] == r'*\WinSXS\*':
+        if x['res_path'] == R'*\WinSXS\*':
             allow_read = True
         if allow_read:
             x['action_type'] = 2
@@ -19,12 +19,13 @@ with open(Path(__file__).parent / 'tencent-auto.json', 'rb+') as f:
     for x in ('DX', 'GL'):
         tencent.append(
             {
-                'res_path': rf'*\NVIDIA\{x}Cache\*',
+                'res_path': Rf'*\NVIDIA\{x}Cache\*',
                 'montype': 1,
                 'action_type': 15,
                 'treatment': 0,
             }
         )
+    tencent.append({'res_path': R'*\Steam\*', 'montype': 1, 'action_type': 15, 'treatment': 3})
     f.seek(0)
     f.truncate(0)
     f.write(json.dumps(data).encode('utf-8'))
