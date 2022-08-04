@@ -7,17 +7,21 @@ with open(Path(__file__).parent / 'tencent-auto.json', 'rb+') as f:
     data = json.load(f)
     tencent = data['data']['*Tencent*']
     for x in tencent:
+        allow_read = False
         for y in ('o', 't'):
-            if rf'\*.{y}tf' in x['res_path']:
-                x['action_type'] = 2
-                x['treatment'] = 0
-                break
-    for x in ('common-controls', 'gdiplus'):
+            if f'*.{y}tf' in x['res_path']:
+                allow_read = True
+        if x['res_path'] == r'*\WinSXS\*':
+            allow_read = True
+        if allow_read:
+            x['action_type'] = 2
+            x['treatment'] = 0
+    for x in ('DX', 'GL'):
         tencent.append(
             {
-                'res_path': rf'*\WinSXS\x86_microsoft.windows.{x}*',
+                'res_path': rf'*\NVIDIA\{x}Cache\*',
                 'montype': 1,
-                'action_type': 2,
+                'action_type': 15,
                 'treatment': 0,
             }
         )
