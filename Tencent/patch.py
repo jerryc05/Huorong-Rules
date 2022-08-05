@@ -25,6 +25,14 @@ with open(Path(__file__).parent / 'tencent-auto.json', 'rb+') as f:
                 'treatment': 0,
             }
         )
+    tencent.append(
+        {
+            'res_path': R'*\NormalColor\shellstyle.dll',
+            'montype': 1,
+            'action_type': 2,
+            'treatment': 0,
+        }
+    )
     tencent.append({'res_path': R'*\Steam\*', 'montype': 1, 'action_type': 15, 'treatment': 3})
     f.seek(0)
     f.truncate(0)
