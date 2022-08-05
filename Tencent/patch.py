@@ -11,7 +11,7 @@ with open(Path(__file__).parent / 'tencent-auto.json', 'rb+') as f:
         for y in ('o', 't'):
             if Rf'\*.{y}tf' in x['res_path']:
                 allow_read = True
-        if x['res_path'] == R'*\WinSXS\*':
+        if x['res_path'] in (R'*\WinSXS\*', R'*\desktop.ini'):
             allow_read = True
         if allow_read:
             x['action_type'] = 2
