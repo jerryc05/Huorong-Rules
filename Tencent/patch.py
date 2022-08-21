@@ -16,23 +16,24 @@ with open(Path(__file__).parent / 'tencent-auto.json', 'rb+') as f:
         if allow_read:
             x['action_type'] = 2
             x['treatment'] = 0
-    for x in [R'*\TPDownloadProxy\*'] + [Rf'*\NVIDIA\{x}Cache\*' for x in ('DX', 'GL')]:
+    for p in [R'*\TPDownloadProxy\*'] + [Rf'*\NVIDIA\{x}Cache\*' for x in ('DX', 'GL')]:
         tencent.append(
             {
-                'res_path': x,
+                'res_path': p,
                 'montype': 1,
                 'action_type': 15,
                 'treatment': 0,
             }
         )
-    tencent.append(
-        {
-            'res_path': R'*\NormalColor\shellstyle.dll',
-            'montype': 1,
-            'action_type': 2,
-            'treatment': 0,
-        }
-    )
+    for p in (R'*\NormalColor\shellstyle.dll', R'*\chrome.exe'):
+        tencent.append(
+            {
+                'res_path': p,
+                'montype': 1,
+                'action_type': 2,
+                'treatment': 0,
+            }
+        )
     tencent.append({'res_path': R'*\Steam\*', 'montype': 1, 'action_type': 15, 'treatment': 3})
     f.seek(0)
     f.truncate(0)
