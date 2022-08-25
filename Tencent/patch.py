@@ -16,7 +16,7 @@ with open(Path(__file__).parent / 'tencent-auto.json', 'rb+') as f:
         if allow_read:
             x['action_type'] = 2
             x['treatment'] = 0
-    for p in [R'*\TPDownloadProxy\*'] + [Rf'*\NVIDIA\{x}Cache\*' for x in ('DX', 'GL')]:
+    for p in [R'*\TPDownloadProxy\*', R'*\Intel\ShaderCache\*'] + [Rf'*\NVIDIA\{x}Cache\*' for x in ('DX', 'GL')]:
         tencent.append(
             {
                 'res_path': p,
