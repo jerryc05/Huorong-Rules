@@ -34,7 +34,9 @@ with open(Path(__file__).parent / 'tencent-auto.json', 'rb+') as f:
                 'treatment': 0,
             }
         )
-    tencent.append({'res_path': R'*\Steam\*', 'montype': 1, 'action_type': 15, 'treatment': 3})
+    for p in (R'*\Steam\*', R'*\RivaTuner Statistics Server\*'):
+        tencent.append({'res_path': p, 'montype': 1, 'action_type': 15, 'treatment': 3})
+
     f.seek(0)
     f.truncate(0)
     f.write(json.dumps(data).encode('utf-8'))
