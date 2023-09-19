@@ -17,10 +17,17 @@ with open(Path(__file__).parent / 'tencent-auto.json', 'rb+') as f:
             x['action_type'] = 2
             x['treatment'] = 0
 
-        if x['res_path'] == R'*\Windows\System32\*':
-            x["action_type"] = 13
-            x["treatment"] = 3
-
+    tencent.append({
+        "res_path": R"*\Windows\*",
+        "montype": 1,
+        "action_type": 13,
+        "treatment": 3
+    })
+    tencent.append({
+        "res_path": R"*\Windows\*",
+        "montype": 1,
+        "action_type": 2,
+    })
 
     for p in [R'*\TPDownloadProxy', R'*\TPDownloadProxy\*', R'*\Intel\ShaderCache\*', R'*\AppData\Local\D3DSCache\*', R'*\qq_guild\*'] + [Rf'*\NVIDIA\{x}Cache\*' for x in ('DX', 'GL')]:
         tencent.append(
