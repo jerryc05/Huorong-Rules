@@ -29,7 +29,7 @@ with open(Path(__file__).parent / 'tencent-auto.json', 'rb+') as f:
         "action_type": 2,
     })
 
-    for p in [R'*\TPDownloadProxy', R'*\TPDownloadProxy\*', R'*\Intel\ShaderCache\*', R'*\AppData\Local\D3DSCache\*', R'*\qq_guild\*'] + [Rf'*\NVIDIA\{x}Cache\*' for x in ('DX', 'GL')]:
+    for p in [R'*\TPDownloadProxy', R'*\TPDownloadProxy\*', R'*\Intel\ShaderCache\*', R'*\AppData\Local\D3DSCache\*', R'*\qq_guild\*'] + [Rf'*\{x}Cache\*' for x in ('DX', 'GL')]:
         tencent.append(
             {
                 'res_path': p,
