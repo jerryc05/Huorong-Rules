@@ -16,6 +16,12 @@ with open(Path(__file__).parent / 'tencent-auto.json', 'rb+') as f:
         if allow_read:
             x['action_type'] = 2
             x['treatment'] = 0
+    
+    for x in tencent:
+        if x['res_path'] == "*\\CryptnetUrlCache\\*":
+            x['action_type'] = 12
+            x['treatment'] = 3
+            break
 
     tencent.append({
         "res_path": R"*\Windows\*",
