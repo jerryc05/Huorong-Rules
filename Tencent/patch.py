@@ -44,7 +44,7 @@ with open(Path(__file__).parent / 'tencent-auto.json', 'rb+') as f:
                 'treatment': 0,
             }
         )
-    for p in (R'*\NormalColor\shellstyle.dll', R'*\chrome.exe', R'*\DCIM\*', f"{Path.home()/'Desktop'}\\*", R'*\Adobe\*\Accessibility.api'):
+    for p in (R'*\NormalColor\shellstyle.dll', R'*\chrome.exe', R'*\DCIM\*', f"{Path.home()/'Desktop'}\\*", R'*\Accessibility.api', R'*AdobeAAMDetect32.dll'):
         tencent.append(
             {
                 'res_path': p,
