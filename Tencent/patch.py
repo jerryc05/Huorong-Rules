@@ -45,7 +45,7 @@ with open(Path(__file__).parent / 'tencent-auto.json', 'rb+') as f:
             }
         )
     # allow read
-    for p in (R'*\NormalColor\shellstyle.dll', R'*\chrome.exe', R'*\DCIM\*', f"{Path.home()/'Desktop'}\\*", R'*\Accessibility.api', R'*AdobeAAMDetect32.dll', R'*\AppData\Roaming\QQ', R'*\AppData\Roaming\QQ\*', R'*\qqtest'):
+    for p in (R'*.dll', R'*\chrome.exe', R'*\DCIM\*', f"{Path.home()/'Desktop'}\\*", R'*\Accessibility.api', R'*\AppData\Roaming\QQ', R'*\AppData\Roaming\QQ\*', R'*\qqtest'):
         tencent.append(
             {
                 'res_path': p,
@@ -55,7 +55,7 @@ with open(Path(__file__).parent / 'tencent-auto.json', 'rb+') as f:
             }
         )
     # all deny
-    for p in (R'*\Steam\*', R'*\RivaTuner Statistics Server\*', R'*\DiscordHook.dll', R'*\xfolder'):
+    for p in (R'*\Steam\*', R'*\RivaTuner Statistics Server\*', R'*\xfolder'):
         tencent.append({'res_path': p, 'montype': 1, 'action_type': 15, 'treatment': 3})
 
     f.seek(0)
