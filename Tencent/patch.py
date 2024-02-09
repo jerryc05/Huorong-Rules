@@ -55,7 +55,7 @@ with open(Path(__file__).parent / 'tencent-auto.json', 'rb+') as f:
             }
         )
     # all deny
-    for p in (R'*\Steam\*', R'*\RivaTuner Statistics Server\*', R'*\DiscordHook.dll', R'*\xfolder\*'):
+    for p in (R'*\Steam\*', R'*\RivaTuner Statistics Server\*', R'*\DiscordHook.dll', R'*\xfolder'):
         tencent.append({'res_path': p, 'montype': 1, 'action_type': 15, 'treatment': 3})
 
     f.seek(0)
