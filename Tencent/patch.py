@@ -55,6 +55,7 @@ for p in [
             "treatment": 0,
         }
     )
+
 # allow read
 for p in (
     R"*.dll",
@@ -65,6 +66,7 @@ for p in (
     R"*\AppData\Roaming\QQ",
     R"*\AppData\Roaming\QQ\*",
     R"*\qqtest",
+    R"*\Windows\explorer.exe",
 ):
     tencent.append(
         {
@@ -74,6 +76,7 @@ for p in (
             "treatment": 0,
         }
     )
+
 # all deny
 for p in (R"*\Steam\*", R"*\RivaTuner Statistics Server\*", R"*\xfolder"):
     tencent.append({"res_path": p, "montype": 1, "action_type": 15, "treatment": 3})
