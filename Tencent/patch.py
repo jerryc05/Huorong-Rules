@@ -67,6 +67,7 @@ for p in (
     R"*\AppData\Roaming\QQ\*",
     R"*\qqtest",
     R"*\Windows\explorer.exe",
+    R"*\explorer.exe.mui",
 ):
     tencent.append(
         {
