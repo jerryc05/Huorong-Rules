@@ -68,6 +68,8 @@ for p in (
     R"*\qqtest",
     R"*\Windows\explorer.exe",
     R"*\explorer.exe.mui",
+    R"*\Searches\*",
+    R"*\CoreSync\CoreSync.exe",
 ):
     tencent.append(
         {
