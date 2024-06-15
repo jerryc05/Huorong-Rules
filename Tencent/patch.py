@@ -70,6 +70,7 @@ for p in (
     R"*\explorer.exe.mui",
     R"*\Searches\*",
     R"*\CoreSync\CoreSync.exe",
+    R"*.jpg",
 ):
     tencent.append(
         {
