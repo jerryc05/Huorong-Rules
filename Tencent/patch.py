@@ -71,6 +71,7 @@ for p in (
     R"*\Searches\*",
     R"*\CoreSync\CoreSync.exe",
     R"*.jpg",
+    R"*.pf",
 ):
     tencent.append(
         {
